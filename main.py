@@ -147,7 +147,7 @@ class Window(QMainWindow):
         # if counter is not - 1
         else:
 
-            # setting counter value to the label
+            # Set counter value to label
             self.computer.setText(str(self.counter))
 
             if self.counter == 0:
@@ -156,18 +156,18 @@ class Window(QMainWindow):
                 # if computer choice is 1
                 if self.comp_choice == 1:
 
-                    # setting rock image to the computer label
+                    # Set rock image for Computer
                     self.computer.setStyleSheet("border-image : url(RockCPU.png);")
 
                 elif self.comp_choice == 2:
-                    # setting paper image to the computer label
+                    # Set paper image for Computer
                     self.computer.setStyleSheet("border-image : url(PaperCPU.png);")
 
                 else:
-                    # setting scissor image to the computer label
+                    # Set scissors image for Computer
                     self.computer.setStyleSheet("border-image : url(ScissorCPU.png);")
 
-                # checking who won the match
+                # Check winner
                 self.who_won()
 
             # decrementing the counter value
@@ -178,13 +178,13 @@ class Window(QMainWindow):
         # making choice as 1
         self.choice = 1
 
-        # setting rock image to the user label
+        # Set rock image for Player
         self.user.setStyleSheet("border-image : url(RockPlayer.png);")
 
         # making counter value to 3
         self.counter = 3
 
-        # disabling the push button
+        # Disable push buttons
         self.rock.setDisabled(True)
         self.paper.setDisabled(True)
         self.scissor.setDisabled(True)
@@ -194,13 +194,13 @@ class Window(QMainWindow):
         # making choice as 2
         self.choice = 2
 
-        # setting rock image to the user label
+        # Set paper image for player
         self.user.setStyleSheet("border-image : url(PaperPlayer.png);")
 
         # making counter value to 3
         self.counter = 3
 
-        # disabling the push button
+        # Disable push buttons
         self.rock.setDisabled(True)
         self.paper.setDisabled(True)
         self.scissor.setDisabled(True)
@@ -210,7 +210,7 @@ class Window(QMainWindow):
         # making choice as 3
         self.choice = 3
 
-        # setting rock image to the user label
+        # Set scissors image for player
         self.user.setStyleSheet("border-image : url(ScissorPlayer.png);")
 
         # making counter value to 3
@@ -223,54 +223,54 @@ class Window(QMainWindow):
 
     def reset_action(self):
 
-        # making result label empty
+        # Reset result text
         self.result.setText("")
 
-        # resting the counter value
+        # Reset counter value
         self.counter = -1
 
-        # enabling the push buttons
+        # Enable push buttons
         self.rock.setEnabled(True)
         self.paper.setEnabled(True)
         self.scissor.setEnabled(True)
 
-        # removing images fro the user and computer label
+        # Make Player and Computer windows blank
         self.user.setStyleSheet("border-image : null;")
         self.computer.setStyleSheet("border-image : null;")
 
     def who_won(self):
 
-        # if match is draw
+        # Match is a draw
         if self.choice == self.comp_choice:
 
-            # setting text to the result label
+            # Set text for result label
             self.result.setText("Draw")
 
         else:
             # condition for winning
-            # user choose rock
+            # Player chose rock
             if self.choice == 1:
-                # computer choose paper
+                # Computer chose paper
                 if self.comp_choice == 2:
-                    # setting text to the result
+                    # Set text for result
                     self.result.setText("Computer Wins")
                 else:
                     self.result.setText("Player Wins")
 
-            # user chooses paper
+            # Player chose paper
             elif self.choice == 2:
-                # computer choose scissor
+                # Computer chose scissors
                 if self.comp_choice == 3:
-                    # setting text to the result
+                    # Set text to result
                     self.result.setText("Computer Wins")
                 else:
                     self.result.setText("Player Wins")
 
-            # if user selects scissors
+            # Player chose scissors
             elif self.choice == 3:
-                # computer choose rock
+                # Computer chose rock
                 if self.comp_choice == 1:
-                    # setting text to the result
+                    # Set text to result
                     self.result.setText("Computer Wins")
                 else:
                     self.result.setText("Player Wins")
