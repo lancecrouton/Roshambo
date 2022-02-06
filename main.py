@@ -244,7 +244,7 @@ class Window(QMainWindow):
         if self.choice == self.comp_choice:
 
             # setting text to the result label
-            self.result.setText("Draw Match")
+            self.result.setText("Draw")
 
         else:
             # condition for winning
@@ -255,7 +255,7 @@ class Window(QMainWindow):
                     # setting text to the result
                     self.result.setText("Computer Wins")
                 else:
-                    self.result.setText("User Wins")
+                    self.result.setText("Player Wins")
 
             # user chooses paper
             elif self.choice == 2:
@@ -264,7 +264,7 @@ class Window(QMainWindow):
                     # setting text to the result
                     self.result.setText("Computer Wins")
                 else:
-                    self.result.setText("User Wins")
+                    self.result.setText("Player Wins")
 
             # if user chooses scissor
             elif self.choice == 3:
@@ -273,7 +273,7 @@ class Window(QMainWindow):
                     # setting text to the result
                     self.result.setText("Computer Wins")
                 else:
-                    self.result.setText("User Wins")
+                    self.result.setText("Player Wins")
 
 
 # Create pyqt app
