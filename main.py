@@ -1,6 +1,5 @@
 ﻿# importing libraries
 from PyQt5.QtWidgets import *
-from PyQt5 import QtCore, QtGui
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 import random
@@ -12,20 +11,19 @@ class Window(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        # setting title
-        self.setWindowTitle("Python ")
+        # Set window title
+        self.setWindowTitle("Roshambo ")
 
-        # setting geometry
+        # Set size of game window
         self.setGeometry(200, 200, 640, 800)
 
-        # calling method
-        self.UiComponents()
+        # Call UI method for display
+        self.user_interface()
 
-        # showing all the widgets
+        # Show widgets
         self.show()
 
-    # method for components
-    def UiComponents(self):
+    def user_interface(self):  # Method to show UI interface
 
         # counter variable
         self.counter = -1
@@ -33,77 +31,76 @@ class Window(QMainWindow):
         # choice variable
         self.choice = 0
 
-        # creating head label
+        # Game title
         head = QLabel("Roshambo", self)
 
-        # setting geometry to the head
+        # Center game title
         head.setGeometry(40, 20, 560, 120)
 
-        # font
-        font = QFont('Times', 15)
+        # Select font
+        font = QFont('Fantasy', 15)
         font.setBold(True)
         font.setItalic(True)
         font.setUnderline(True)
 
-        # setting font to the head
+        # Set font to game title
         head.setFont(font)
 
-        # setting alignment of the head
+        # Set alignment to game title
         head.setAlignment(Qt.AlignCenter)
 
-        # setting color effect to the head
+        # Set color to game title
         color = QGraphicsColorizeEffect(self)
-        color.setColor(Qt.darkCyan)
+        color.setColor(Qt.black)
         head.setGraphicsEffect(color)
 
-        # creating a vs label
+        # Add vs. text
         self.vs = QLabel("vs", self)
 
-        # setting geometry
+        # Align vs. text
         self.vs.setGeometry(300, 220, 60, 100)
 
-        # setting font
+        # Select font
         font.setUnderline(False)
         font.setItalic(False)
         self.vs.setFont(font)
 
-        # creating your choice label
-        self.user = QLabel("You", self)
+        # Create player label
+        self.user = QLabel("Player", self)
 
-        # setting geometry
+        # Set player box
         self.user.setGeometry(100, 200, 140, 140)
-        self.user.setStyleSheet("border : 2px solid black; background : white;")
+        self.user.setStyleSheet("border : 2px solid black; background : blue;")
 
-        # setting alignment
+        # Align user box
         self.user.setAlignment(Qt.AlignCenter)
 
-        # creating computer choice  label
+        # Create computer label
         self.computer = QLabel("Computer", self)
 
-        # setting geometry
+        # Set computer box
         self.computer.setGeometry(400, 200, 140, 140)
-        self.computer.setStyleSheet("border : 2px solid black; background : white;")
+        self.computer.setStyleSheet("border : 2px solid black; background : red;")
 
-        # setting alignment
+        # Align computer box
         self.computer.setAlignment(Qt.AlignCenter)
 
-        # result label
+        # Create result label
         self.result = QLabel(self)
 
-        # setting geometry to the result
+        # Set result label
         self.result.setGeometry(50, 400, 540, 100)
 
-        # setting font
+        # Set result label font
         self.result.setFont(QFont('Times', 14))
 
-        # setting alignment
+        # Align result label
         self.result.setAlignment(Qt.AlignCenter)
 
-        # setting border and color
+        # Set border and color
         self.result.setStyleSheet("border : 2px solid black; background : white;")
 
-        # creating three push button
-        # for rock paper and scissor
+        # Create button for rock, paper and scissors
         self.rock = QPushButton("Rock", self)
         self.rock.setGeometry(60, 540, 160, 70)
 
@@ -113,32 +110,32 @@ class Window(QMainWindow):
         self.scissor = QPushButton("Scissor", self)
         self.scissor.setGeometry(420, 540, 160, 70)
 
-        # adding actions to the buttons
+        # Add actions to buttons
         self.rock.clicked.connect(self.rock_action)
         self.paper.clicked.connect(self.paper_action)
         self.scissor.clicked.connect(self.scissor_action)
 
-        # creating push button to reset all the game
+        # Create reset button
         game_reset = QPushButton("Reset", self)
 
-        # setting geometry
+        # Center reset button
         game_reset.setGeometry(200, 640, 240, 100)
 
-        # setting color effect
+        # Set color effect
         color = QGraphicsColorizeEffect(self)
         color.setColor(Qt.red)
         game_reset.setGraphicsEffect(color)
 
-        # adding action tot he reset button
+        # Add action to reset button
         game_reset.clicked.connect(self.reset_action)
 
-        # creating a timer object
+        # Create timer
         timer = QTimer(self)
 
-        # adding action to the timer
+        # Add action to timer
         timer.timeout.connect(self.showTime)
 
-        # starting the timer
+        # Start timer
         timer.start(1000)
 
     def showTime(self):
@@ -160,15 +157,15 @@ class Window(QMainWindow):
                 if self.comp_choice == 1:
 
                     # setting rock image to the computer label
-                    self.computer.setStyleSheet("border-image : url(rock.png);")
+                    self.computer.setStyleSheet("border-image : url(RockCPU.png);")
 
                 elif self.comp_choice == 2:
                     # setting paper image to the computer label
-                    self.computer.setStyleSheet("border-image : url(Paper.png);")
+                    self.computer.setStyleSheet("border-image : url(PaperCPU.png);")
 
                 else:
                     # setting scissor image to the computer label
-                    self.computer.setStyleSheet("border-image : url(scissor.png);")
+                    self.computer.setStyleSheet("border-image : url(ScissorCPU.png);")
 
                 # checking who won the match
                 self.who_won()
@@ -182,7 +179,7 @@ class Window(QMainWindow):
         self.choice = 1
 
         # setting rock image to the user label
-        self.user.setStyleSheet("border-image : url(rock.png);")
+        self.user.setStyleSheet("border-image : url(RockPlayer.png);")
 
         # making counter value to 3
         self.counter = 3
@@ -198,7 +195,7 @@ class Window(QMainWindow):
         self.choice = 2
 
         # setting rock image to the user label
-        self.user.setStyleSheet("border-image : url(Paper.png);")
+        self.user.setStyleSheet("border-image : url(PaperPlayer.png);")
 
         # making counter value to 3
         self.counter = 3
@@ -214,7 +211,7 @@ class Window(QMainWindow):
         self.choice = 3
 
         # setting rock image to the user label
-        self.user.setStyleSheet("border-image : url(scissor.png);")
+        self.user.setStyleSheet("border-image : url(ScissorPlayer.png);")
 
         # making counter value to 3
         self.counter = 3
@@ -279,11 +276,11 @@ class Window(QMainWindow):
                     self.result.setText("User Wins")
 
 
-# create pyqt5 app
+# Create pyqt app
 App = QApplication(sys.argv)
 
-# create the instance of our Window
+# Create instance
 window = Window()
 
-# start the app
+# Start app
 sys.exit(App.exec())
