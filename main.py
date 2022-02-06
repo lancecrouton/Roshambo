@@ -266,7 +266,7 @@ class Window(QMainWindow):
                 else:
                     self.result.setText("Player Wins")
 
-            # if user chooses scissor
+            # if user selects scissorss
             elif self.choice == 3:
                 # computer choose rock
                 if self.comp_choice == 1:
