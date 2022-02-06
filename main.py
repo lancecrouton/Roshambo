@@ -133,12 +133,12 @@ class Window(QMainWindow):
         timer = QTimer(self)
 
         # Add action to timer
-        timer.timeout.connect(self.showTime)
+        timer.timeout.connect(self.display)
 
         # Start timer
         timer.start(1000)
 
-    def showTime(self):
+    def display(self):
 
         # if counter value is - 1
         if self.counter == -1:
@@ -266,7 +266,7 @@ class Window(QMainWindow):
                 else:
                     self.result.setText("Player Wins")
 
-            # if user selects scissorss
+            # if user selects scissors
             elif self.choice == 3:
                 # computer choose rock
                 if self.comp_choice == 1:
